@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 
 export default function About() {
   return (
@@ -43,7 +44,7 @@ export default function About() {
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
-          Over the past years, I've helped several businesses in Germany become digitalized by building professional, user-friendly websites and tools tailored to their operations. This includes working with car-selling companies and developing platforms that simplify and automate real business workflows. I've created invoice generators, business websites, and data-driven applications that improve efficiency and customer experience.
+          Over the past years, I've helped several businesses in Germany become digitalized by building professional, user-friendly websites and tools tailored to their operations. This includes working with car-selling companies and developing platforms that simplify and automate real business workflows. I've created invoice generators, business websites, and data-driven applications that improve efficiency and customer experience. You can explore my <Link href="#projects" className="text-pink-500 hover:text-pink-400 underline transition-colors">projects</Link> and <Link href="#portfolio" className="text-pink-500 hover:text-pink-400 underline transition-colors">certifications</Link> to see examples of my work.
         </motion.p>
         
         <motion.p

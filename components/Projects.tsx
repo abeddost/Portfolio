@@ -166,6 +166,9 @@ export default function Projects() {
               
               <p className="text-gray-300 leading-relaxed">
                 {project.description}
+                {index === 0 && (
+                  <> Check out my <Link href="#portfolio" className="text-pink-500 hover:text-pink-400 underline transition-colors">tech stack and certificates</Link> to learn more about my skills.</>
+                )}
               </p>
               
               <div className="flex flex-wrap gap-2 pt-2">

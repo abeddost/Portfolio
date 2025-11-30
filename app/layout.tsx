@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     default: "Abdul Qader Dost | Fullstack Developer & AI Engineer",
     template: "%s | Abdul Qader Dost"
   },
-  description: "Portfolio of Abdul Qader Dost - Fullstack Developer specializing in AI, Machine Learning, and modern web applications. Turning ideas into digital reality with scalable, user-focused solutions.",
+  description: "Abdul Qader Dost - Fullstack Developer & AI Engineer. Specializing in AI, Machine Learning, and modern web applications. Building scalable, user-focused solutions.",
   keywords: [
     "Fullstack Developer",
     "AI Engineer",
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     url: baseUrl,
     siteName: "Abdul Qader Dost Portfolio",
     title: "Abdul Qader Dost | Fullstack Developer & AI Engineer",
-    description: "Portfolio of Abdul Qader Dost - Fullstack Developer specializing in AI, Machine Learning, and modern web applications.",
+    description: "Abdul Qader Dost - Fullstack Developer & AI Engineer. Specializing in AI, Machine Learning, and modern web applications.",
     images: [
       {
         url: `${baseUrl}/og-image.jpg`, // You'll need to create this
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Abdul Qader Dost | Fullstack Developer & AI Engineer",
-    description: "Portfolio of Abdul Qader Dost - Fullstack Developer specializing in AI, Machine Learning, and modern web applications.",
+    description: "Abdul Qader Dost - Fullstack Developer & AI Engineer. Specializing in AI, Machine Learning, and modern web applications.",
     creator: "@abeddostt", // Update with your Twitter handle if you have one
     images: [`${baseUrl}/og-image.jpg`],
   },
