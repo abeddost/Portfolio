@@ -97,6 +97,7 @@ export default function Projects() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               whileHover={{ scale: 1.02, y: -5 }}
+              style={{ willChange: 'transform' }}
             >
               <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-50`}></div>
               <div className="relative z-10 p-2">
@@ -149,7 +150,6 @@ export default function Projects() {
                 <motion.h3 
                   className="text-2xl md:text-3xl font-bold text-white"
                   whileHover={{ scale: 1.05 }}
-                  transition={{ type: 'spring', stiffness: 400 }}
                 >
                   {project.name}
                 </motion.h3>
@@ -168,42 +168,31 @@ export default function Projects() {
                 {project.description}
               </p>
               
-              <motion.div 
-                className="flex flex-wrap gap-2 pt-2"
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 + 0.4 }}
-              >
+              <div className="flex flex-wrap gap-2 pt-2">
                 {project.techStack.map((tech, techIndex) => (
                   <motion.span
                     key={tech}
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.3, delay: index * 0.1 + techIndex * 0.05 }}
-                    whileHover={{ scale: 1.1, y: -2 }}
-                    className="px-3 py-1 bg-white/10 text-gray-300 text-sm rounded-full border border-white/20 hover:border-pink-500/50 transition-colors"
+                    whileHover={{ scale: 1.1, backgroundColor: 'rgba(236, 72, 153, 0.3)' }}
+                    className="px-3 py-1 bg-white/10 text-gray-300 text-sm rounded-full border border-white/20 cursor-default will-change-transform"
                   >
                     {tech}
                   </motion.span>
                 ))}
-              </motion.div>
+              </div>
               
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+              <Link
+                href={project.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-6 py-2 bg-gradient-to-r from-pink-500 to-purple-500 text-white font-semibold rounded-lg hover:from-pink-600 hover:to-purple-600 transition-all duration-300 transform hover:scale-105 will-change-transform"
               >
-                <Link
-                  href={project.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-6 py-2 bg-gradient-to-r from-pink-500 to-purple-500 text-white font-semibold rounded-lg hover:from-pink-600 hover:to-purple-600 transition-all duration-300 shadow-lg shadow-pink-500/50"
-                >
-                  Visit Live
-                  <ExternalLink className="w-4 h-4" />
-                </Link>
-              </motion.div>
+                Visit Live
+                <ExternalLink className="w-4 h-4" />
+              </Link>
             </motion.div>
           </motion.div>
         ))}
@@ -211,4 +200,3 @@ export default function Projects() {
     </div>
   );
 }
-
