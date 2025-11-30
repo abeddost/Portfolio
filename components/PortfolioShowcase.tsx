@@ -1,6 +1,6 @@
 'use client';
 
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { Award, Network } from 'lucide-react';
 import CertificatesContent from './CertificatesContent';
@@ -44,71 +44,41 @@ export default function PortfolioShowcase() {
         </p>
       </motion.div>
 
-      {/* Tab Navigation */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6, delay: 0.2 }}
-        className="flex justify-center mb-12"
-      >
-        <div className="inline-flex bg-white/5 rounded-xl p-1.5 border border-white/10 backdrop-blur-md shadow-lg">
+      {/* Tab Navigation - Matching Reference Design */}
+      <div className="flex justify-center mb-8">
+        <div className="inline-flex bg-white/5 rounded-lg p-1 border border-white/10">
           {tabs.map((tab) => {
             const Icon = tab.icon;
             const isActive = activeTab === tab.id;
             
             return (
-              <motion.button
+              <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`relative px-8 py-3 rounded-lg flex flex-col items-center gap-2 font-semibold transition-all duration-300 min-w-[120px] ${
+                role="tab"
+                aria-selected={isActive}
+                className={`relative px-6 py-4 rounded-md flex flex-col items-center gap-2 font-medium transition-all duration-200 min-w-[100px] ${
                   isActive
-                    ? 'text-white'
+                    ? 'bg-white/10 text-white'
                     : 'text-gray-400 hover:text-gray-200'
                 }`}
-                whileHover={{ scale: 1.05, y: -2 }}
-                whileTap={{ scale: 0.95 }}
               >
-                {isActive && (
-                  <motion.div
-                    layoutId="activeTab"
-                    className="absolute inset-0 bg-gradient-to-r from-pink-500/30 via-purple-500/30 to-blue-500/30 rounded-lg border border-pink-500/50 shadow-lg shadow-pink-500/20"
-                    transition={{ type: 'spring', stiffness: 500, damping: 30 }}
-                  />
-                )}
-                <motion.div
-                  animate={isActive ? { 
-                    scale: [1, 1.2, 1],
-                    rotate: [0, 5, -5, 0]
-                  } : {}}
-                  transition={{ duration: 0.5 }}
-                >
-                  <Icon className={`w-6 h-6 relative z-10 ${isActive ? 'text-pink-400' : 'text-gray-400'}`} />
-                </motion.div>
-                <span className="relative z-10 text-sm">{tab.label}</span>
-              </motion.button>
+                <Icon className={`w-5 h-5 ${isActive ? 'text-white' : 'text-gray-400'}`} />
+                <span className="text-sm">{tab.label}</span>
+              </button>
             );
           })}
         </div>
-      </motion.div>
+      </div>
 
       {/* Tab Content */}
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={activeTab}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -20 }}
-          transition={{ duration: 0.3 }}
-        >
-          {activeTab === 'techstack' ? (
-            <TechStackGrid />
-          ) : (
-            <CertificatesContent />
-          )}
-        </motion.div>
-      </AnimatePresence>
+      <div>
+        {activeTab === 'techstack' ? (
+          <TechStackGrid />
+        ) : (
+          <CertificatesContent />
+        )}
+      </div>
     </div>
   );
 }
-
