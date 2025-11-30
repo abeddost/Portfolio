@@ -3,7 +3,7 @@ import "./globals.css";
 import Navigation from "@/components/Navigation";
 import StructuredData from "@/components/StructuredData";
 
-const baseUrl = 'https://abdulqaderdost.vercel.app'; // Update with your actual domain
+const baseUrl = 'https://abeddost.vercel.app';
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),

@@ -1,5 +1,5 @@
 export default function StructuredData() {
-  const baseUrl = 'https://abdulqaderdost.vercel.app'; // Update with your actual domain
+  const baseUrl = 'https://abeddost.vercel.app';
 
   const personSchema = {
     "@context": "https://schema.org",
