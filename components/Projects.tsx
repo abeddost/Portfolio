@@ -104,10 +104,12 @@ export default function Projects() {
                   {project.screenshot ? (
                     <Image
                       src={project.screenshot}
-                      alt={`${project.name} screenshot`}
+                      alt={`${project.name} - Project screenshot showcasing ${project.description.substring(0, 50)}...`}
                       fill
                       className="object-cover group-hover:scale-110 transition-transform duration-500"
                       sizes="(max-width: 768px) 100vw, 50vw"
+                      loading={index < 2 ? "eager" : "lazy"}
+                      quality={85}
                       onError={(e) => {
                         // Fallback to placeholder if image doesn't exist
                         const target = e.target as HTMLImageElement;

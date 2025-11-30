@@ -1,10 +1,74 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Navigation from "@/components/Navigation";
+import StructuredData from "@/components/StructuredData";
+
+const baseUrl = 'https://abdulqaderdost.vercel.app'; // Update with your actual domain
 
 export const metadata: Metadata = {
-  title: "Abdul Qader Dost | Fullstack Developer",
-  description: "Portfolio of Abdul Qader Dost - Fullstack Developer specializing in AI, Machine Learning, and modern web applications",
+  metadataBase: new URL(baseUrl),
+  title: {
+    default: "Abdul Qader Dost | Fullstack Developer & AI Engineer",
+    template: "%s | Abdul Qader Dost"
+  },
+  description: "Portfolio of Abdul Qader Dost - Fullstack Developer specializing in AI, Machine Learning, and modern web applications. Turning ideas into digital reality with scalable, user-focused solutions.",
+  keywords: [
+    "Fullstack Developer",
+    "AI Engineer",
+    "Machine Learning Engineer",
+    "React Developer",
+    "Next.js Developer",
+    "TypeScript Developer",
+    "Web Developer",
+    "Portfolio",
+    "Abdul Qader Dost",
+    "Fullstack Developer Portfolio",
+    "AI ML Engineer Germany"
+  ],
+  authors: [{ name: "Abdul Qader Dost" }],
+  creator: "Abdul Qader Dost",
+  publisher: "Abdul Qader Dost",
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: baseUrl,
+    siteName: "Abdul Qader Dost Portfolio",
+    title: "Abdul Qader Dost | Fullstack Developer & AI Engineer",
+    description: "Portfolio of Abdul Qader Dost - Fullstack Developer specializing in AI, Machine Learning, and modern web applications.",
+    images: [
+      {
+        url: `${baseUrl}/og-image.jpg`, // You'll need to create this
+        width: 1200,
+        height: 630,
+        alt: "Abdul Qader Dost - Fullstack Developer Portfolio",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Abdul Qader Dost | Fullstack Developer & AI Engineer",
+    description: "Portfolio of Abdul Qader Dost - Fullstack Developer specializing in AI, Machine Learning, and modern web applications.",
+    creator: "@abeddostt", // Update with your Twitter handle if you have one
+    images: [`${baseUrl}/og-image.jpg`],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  verification: {
+    // Add your verification codes here when you set up Google Search Console
+    // google: 'your-google-verification-code',
+  },
+  alternates: {
+    canonical: baseUrl,
+  },
 };
 
 export default function RootLayout({
@@ -14,6 +78,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <StructuredData />
+      </head>
       <body className="antialiased">
         <div className="fixed inset-0 -z-10">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(120,119,198,0.1),transparent_50%)]"></div>
@@ -28,4 +95,3 @@ export default function RootLayout({
     </html>
   );
 }
-

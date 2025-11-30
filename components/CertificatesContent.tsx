@@ -67,10 +67,12 @@ export default function CertificatesContent() {
             <div className="relative w-full h-full">
               <Image
                 src={`/certificates/${encodeURIComponent(cert.file)}`}
-                alt={cert.name}
+                alt={`${cert.name} certificate - Abdul Qader Dost`}
                 fill
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                loading="lazy"
+                quality={85}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
             </div>
@@ -129,12 +131,12 @@ export default function CertificatesContent() {
                 <div className="relative w-full">
                   <Image
                     src={`/certificates/${encodeURIComponent(selectedCert)}`}
-                    alt={certificates.find((c) => c.file === selectedCert)?.name || 'Certificate'}
+                    alt={`${certificates.find((c) => c.file === selectedCert)?.name || 'Certificate'} - Full certificate view - Abdul Qader Dost`}
                     width={1200}
                     height={1600}
                     className="w-full h-auto"
-                    quality={100}
-                    unoptimized
+                    quality={90}
+                    priority
                   />
                 </div>
               </div>
