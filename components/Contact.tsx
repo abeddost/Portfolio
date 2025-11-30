@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Mail, Github, Linkedin } from 'lucide-react';
+import { Mail, Github, Linkedin, Instagram } from 'lucide-react';
 
 export default function Contact() {
   return (
@@ -62,6 +62,17 @@ export default function Contact() {
               aria-label="LinkedIn"
             >
               <Linkedin className="w-5 h-5 text-gray-300" />
+            </motion.a>
+            <motion.a
+              href="https://instagram.com/abeddostt"
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.2, rotate: 5 }}
+              whileTap={{ scale: 0.9 }}
+              className="p-3 bg-white/10 rounded-lg hover:bg-pink-500/20 transition-colors"
+              aria-label="Instagram"
+            >
+              <Instagram className="w-5 h-5 text-gray-300" />
             </motion.a>
           </div>
         </div>
