@@ -53,6 +53,17 @@ const certificates = [
 
 export default function CertificatesContent() {
   const [selectedCert, setSelectedCert] = useState<string | null>(null);
+  const [isModalImageLoading, setIsModalImageLoading] = useState(true);
+
+  const handleCertClick = (file: string) => {
+    setSelectedCert(file);
+    setIsModalImageLoading(true);
+  };
+
+  const handleCloseModal = () => {
+    setSelectedCert(null);
+    setIsModalImageLoading(true);
+  };
 
   return (
     <>
@@ -61,7 +72,7 @@ export default function CertificatesContent() {
           <div
             key={cert.file}
             className="group relative rounded-lg overflow-hidden bg-white/5 border border-white/10 cursor-pointer aspect-[4/3]"
-            onClick={() => setSelectedCert(cert.file)}
+            onClick={() => handleCertClick(cert.file)}
           >
             {/* Certificate image */}
             <div className="relative w-full h-full">
@@ -72,7 +83,7 @@ export default function CertificatesContent() {
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 loading="lazy"
-                quality={85}
+                quality={75}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
             </div>
@@ -95,7 +106,7 @@ export default function CertificatesContent() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             className="fixed inset-0 bg-black/90 backdrop-blur-sm z-50 flex items-center justify-center p-4"
-            onClick={() => setSelectedCert(null)}
+            onClick={handleCloseModal}
           >
             <motion.div
               initial={{ scale: 0.95, opacity: 0 }}
@@ -107,8 +118,8 @@ export default function CertificatesContent() {
             >
               {/* Close button */}
               <button
-                onClick={() => setSelectedCert(null)}
-                className="absolute top-4 right-4 z-10 w-10 h-10 bg-black/70 hover:bg-black/90 rounded-full flex items-center justify-center text-white transition-colors backdrop-blur-sm"
+                onClick={handleCloseModal}
+                className="absolute top-4 right-4 z-20 w-10 h-10 bg-black/70 hover:bg-black/90 rounded-full flex items-center justify-center text-white transition-colors backdrop-blur-sm"
                 aria-label="Close"
               >
                 <svg
@@ -128,15 +139,29 @@ export default function CertificatesContent() {
 
               {/* Certificate full view */}
               <div className="w-full max-h-[95vh] overflow-auto bg-gray-50">
-                <div className="relative w-full">
+                <div className="relative w-full min-h-[400px] flex items-center justify-center">
+                  {/* Loading spinner */}
+                  {isModalImageLoading && (
+                    <div className="absolute inset-0 flex items-center justify-center bg-gray-50 z-10">
+                      <div className="flex flex-col items-center gap-4">
+                        <div className="w-16 h-16 border-4 border-pink-500/30 border-t-pink-500 rounded-full animate-spin"></div>
+                        <p className="text-gray-600 text-sm">Loading certificate...</p>
+                      </div>
+                    </div>
+                  )}
+                  
                   <Image
                     src={`/certificates/${encodeURIComponent(selectedCert)}`}
                     alt={`${certificates.find((c) => c.file === selectedCert)?.name || 'Certificate'} - Full certificate view - Abdul Qader Dost`}
                     width={1200}
                     height={1600}
-                    className="w-full h-auto"
-                    quality={90}
+                    className={`w-full h-auto transition-opacity duration-300 ${
+                      isModalImageLoading ? 'opacity-0' : 'opacity-100'
+                    }`}
+                    quality={85}
                     priority
+                    onLoadingComplete={() => setIsModalImageLoading(false)}
+                    onError={() => setIsModalImageLoading(false)}
                   />
                 </div>
               </div>
