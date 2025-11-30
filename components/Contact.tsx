@@ -11,9 +11,11 @@ export default function Contact() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
-        className="text-4xl md:text-5xl font-bold text-white mb-8 text-center"
+        className="text-4xl md:text-5xl font-bold mb-8 text-center"
       >
-        Get In Touch
+        <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 animate-gradient">
+          Get In Touch
+        </span>
       </motion.h2>
       
       <motion.div
@@ -28,33 +30,39 @@ export default function Contact() {
         </p>
         
         <div className="flex flex-col items-center space-y-6">
-          <a
+          <motion.a
             href="mailto:abdulqaderdost@yahoo.com"
-            className="flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-pink-500 to-purple-500 text-white font-semibold rounded-lg hover:from-pink-600 hover:to-purple-600 transition-all duration-300 transform hover:scale-105"
+            whileHover={{ scale: 1.05, y: -2 }}
+            whileTap={{ scale: 0.95 }}
+            className="flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-pink-500 to-purple-500 text-white font-semibold rounded-lg hover:from-pink-600 hover:to-purple-600 transition-all duration-300 shadow-lg shadow-pink-500/50"
           >
             <Mail className="w-5 h-5" />
             Send Email
-          </a>
+          </motion.a>
           
           <div className="flex gap-4 pt-4">
-            <a
+            <motion.a
               href="https://github.com/abeddost"
               target="_blank"
               rel="noopener noreferrer"
+              whileHover={{ scale: 1.2, rotate: 5 }}
+              whileTap={{ scale: 0.9 }}
               className="p-3 bg-white/10 rounded-lg hover:bg-pink-500/20 transition-colors"
               aria-label="GitHub"
             >
               <Github className="w-5 h-5 text-gray-300" />
-            </a>
-            <a
+            </motion.a>
+            <motion.a
               href="https://linkedin.com/in/abdulqaderdost"
               target="_blank"
               rel="noopener noreferrer"
+              whileHover={{ scale: 1.2, rotate: -5 }}
+              whileTap={{ scale: 0.9 }}
               className="p-3 bg-white/10 rounded-lg hover:bg-pink-500/20 transition-colors"
               aria-label="LinkedIn"
             >
               <Linkedin className="w-5 h-5 text-gray-300" />
-            </a>
+            </motion.a>
           </div>
         </div>
       </motion.div>

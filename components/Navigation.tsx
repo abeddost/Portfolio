@@ -12,7 +12,7 @@ export default function Navigation() {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
       
-      const sections = ['home', 'about', 'projects', 'certificates', 'techstack', 'contact'];
+      const sections = ['home', 'about', 'projects', 'portfolio', 'contact'];
       const current = sections.find(section => {
         const element = document.getElementById(section);
         if (element) {
@@ -35,8 +35,7 @@ export default function Navigation() {
     { href: '#home', label: 'Home', id: 'home' },
     { href: '#about', label: 'About', id: 'about' },
     { href: '#projects', label: 'Projects', id: 'projects' },
-    { href: '#certificates', label: 'Certificates', id: 'certificates' },
-    { href: '#techstack', label: 'Tech Stack', id: 'techstack' },
+    { href: '#portfolio', label: 'Portfolio', id: 'portfolio' },
     { href: '#contact', label: 'Contact', id: 'contact' },
   ];
 

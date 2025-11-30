@@ -1,8 +1,7 @@
 import Hero from '@/components/Hero';
 import About from '@/components/About';
 import Projects from '@/components/Projects';
-import Certificates from '@/components/Certificates';
-import TechStack from '@/components/TechStack';
+import PortfolioShowcase from '@/components/PortfolioShowcase';
 import Contact from '@/components/Contact';
 
 export default function Home() {
@@ -17,11 +16,8 @@ export default function Home() {
       <section id="projects" className="min-h-screen py-20 px-4 sm:px-6 lg:px-8">
         <Projects />
       </section>
-      <section id="certificates" className="min-h-screen py-20 px-4 sm:px-6 lg:px-8">
-        <Certificates />
-      </section>
-      <section id="techstack" className="min-h-screen py-20 px-4 sm:px-6 lg:px-8">
-        <TechStack />
+      <section id="portfolio" className="min-h-screen py-20 px-4 sm:px-6 lg:px-8">
+        <PortfolioShowcase />
       </section>
       <section id="contact" className="min-h-screen py-20 px-4 sm:px-6 lg:px-8">
         <Contact />
