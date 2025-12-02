@@ -21,6 +21,7 @@ const projects = [
     description: 'A full-featured inventory and order management system tailored for carpet businesses. Manage stock levels, orders, invoices, expenses, and analytics in one place, with CSV/JSON import-export and a clean, dashboard-style interface for day-to-day operations.',
     techStack: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS'],
     imageFit: 'contain',
+    imageHeight: 'tall',
     gradient: 'from-blue-500/20 to-cyan-500/20',
   },
   {
@@ -30,14 +31,6 @@ const projects = [
     description: 'Professional car dealership website for H&F Autohaus in Bodenheim. Features vehicle listings, service information, and contact forms. Built to showcase the dealership\'s inventory and services with a clean, professional design.',
     techStack: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'SEO Optimization'],
     gradient: 'from-green-500/20 to-emerald-500/20',
-  },
-  {
-    name: 'Qalin Sara Invoice Generator',
-    url: 'https://qalin-sara-invoice-generator.vercel.app/',
-    screenshot: '/project-screenshots/qalin-sara-invoice.png',
-    description: 'An invoice generation tool that automates the creation of professional invoices. Simplifies billing processes for businesses with customizable templates and easy-to-use interface.',
-    techStack: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'PDF Generation'],
-    gradient: 'from-orange-500/20 to-red-500/20',
   },
   {
     name: 'QASR Invoice Generator',
@@ -73,14 +66,14 @@ export default function Projects() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
-        className="text-4xl md:text-5xl font-bold mb-12 text-center"
+        className="text-4xl md:text-5xl font-bold mb-10 text-center"
       >
         <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 animate-gradient">
           Projects
         </span>
       </motion.h2>
-      
-      <div className="space-y-12">
+
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
         {projects.map((project, index) => (
           <motion.div
             key={project.name}
@@ -88,9 +81,9 @@ export default function Projects() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: index * 0.1 }}
-            className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center"
+            className="flex flex-col gap-4"
           >
-            {/* Left side - Project Screenshot */}
+            {/* Project Screenshot */}
             <motion.div 
               className={`relative rounded-2xl overflow-hidden bg-gradient-to-br ${project.gradient} backdrop-blur-sm border border-white/10 group`}
               initial={{ opacity: 0, x: -30 }}
@@ -102,14 +95,24 @@ export default function Projects() {
             >
               <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-50`}></div>
               <div className="relative z-10 p-2">
-                <div className="relative h-64 md:h-80 rounded-lg overflow-hidden bg-black/20">
+                <div
+                  className={`relative rounded-lg overflow-hidden bg-black/20 ${
+                    // Give QalinSara a bit more vertical space so it isn't too zoomed in or out
+                    (project as any).imageHeight === 'tall'
+                      ? 'h-64 md:h-72'
+                      : 'h-56 md:h-64'
+                  }`}
+                >
                   {project.screenshot ? (
                     <Image
                       src={project.screenshot}
                       alt={`${project.name} - Project screenshot showcasing ${project.description.substring(0, 50)}...`}
                       fill
-                      className={`${project.imageFit === 'contain' ? 'object-contain' : 'object-cover'} group-hover:scale-110 transition-transform duration-500`
-                      }
+                      className={`${
+                        (project as any).imageFit === 'contain'
+                          ? 'object-contain'
+                          : 'object-cover'
+                      } group-hover:scale-110 transition-transform duration-500`}
                       sizes="(max-width: 768px) 100vw, 50vw"
                       loading={index < 2 ? "eager" : "lazy"}
                       quality={85}
@@ -140,10 +143,10 @@ export default function Projects() {
               <div className="absolute -inset-1 bg-gradient-to-r from-pink-500/20 to-purple-500/20 rounded-2xl blur opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10"></div>
             </motion.div>
 
-            {/* Right side - Description */}
+            {/* Description */}
             <motion.div 
-              className="space-y-4"
-              initial={{ opacity: 0, x: 20 }}
+              className="space-y-3 flex-1"
+              initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.1 + 0.2 }}

@@ -2,16 +2,22 @@
 
 import { motion } from 'framer-motion';
 import { useState } from 'react';
-import { Award, Network } from 'lucide-react';
+import { Award, Network, ExternalLink } from 'lucide-react';
 import CertificatesContent from './CertificatesContent';
 import TechStackGrid from './TechStackGrid';
+import Projects from './Projects';
 
-type TabType = 'certificates' | 'techstack';
+type TabType = 'projects' | 'certificates' | 'techstack';
 
 export default function PortfolioShowcase() {
-  const [activeTab, setActiveTab] = useState<TabType>('techstack');
+  const [activeTab, setActiveTab] = useState<TabType>('projects');
 
   const tabs = [
+    {
+      id: 'projects' as TabType,
+      label: 'Projects',
+      icon: ExternalLink,
+    },
     {
       id: 'techstack' as TabType,
       label: 'Tech Stack',
@@ -73,11 +79,9 @@ export default function PortfolioShowcase() {
 
       {/* Tab Content */}
       <div>
-        {activeTab === 'techstack' ? (
-          <TechStackGrid />
-        ) : (
-          <CertificatesContent />
-        )}
+        {activeTab === 'projects' && <Projects />}
+        {activeTab === 'techstack' && <TechStackGrid />}
+        {activeTab === 'certificates' && <CertificatesContent />}
       </div>
     </div>
   );

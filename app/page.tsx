@@ -3,11 +3,6 @@ import Hero from '@/components/Hero';
 import About from '@/components/About';
 
 // Lazy load heavy components for better performance
-const Projects = dynamic(() => import('@/components/Projects'), {
-  loading: () => <div className="min-h-screen py-20 px-4 sm:px-6 lg:px-8"><div className="max-w-7xl mx-auto">Loading projects...</div></div>,
-  ssr: true,
-});
-
 const PortfolioShowcase = dynamic(() => import('@/components/PortfolioShowcase'), {
   loading: () => <div className="min-h-screen py-20 px-4 sm:px-6 lg:px-8"><div className="max-w-7xl mx-auto">Loading portfolio...</div></div>,
   ssr: true,
@@ -32,9 +27,6 @@ export default function Home() {
       </section>
       <section id="about" className="min-h-screen py-20 px-4 sm:px-6 lg:px-8">
         <About />
-      </section>
-      <section id="projects" className="min-h-screen py-20 px-4 sm:px-6 lg:px-8">
-        <Projects />
       </section>
       <section id="portfolio" className="min-h-screen py-20 px-4 sm:px-6 lg:px-8">
         <PortfolioShowcase />
