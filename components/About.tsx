@@ -23,62 +23,141 @@ export default function About() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6, delay: 0.2 }}
-        className="prose prose-invert prose-lg max-w-none space-y-6 text-gray-300 leading-relaxed"
+        className="prose prose-invert prose-lg max-w-none space-y-8 text-gray-300 leading-relaxed"
       >
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-        >
-          I'm <motion.span 
-            className="text-pink-500 font-semibold inline-block"
-            animate={{ scale: [1, 1.05, 1] }}
-            transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-          >Abdul Qader Dost</motion.span>, an Electrical and Electronics Engineer with a strong focus on <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-purple-400 font-semibold">AI, Machine Learning</span>, and building modern digital applications. After completing my bachelor's thesis on license plate detection using machine learning and Raspberry Pi, I continued strengthening my foundation through the <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-400 font-semibold">MIT Emerging Talent Program</span>.
-        </motion.p>
-        
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-        >
-          Over the past years, I've helped several businesses in Germany become digitalized by building professional, user-friendly websites and tools tailored to their operations. This includes working with car-selling companies and developing platforms that simplify and automate real business workflows. I've created invoice generators, business websites, and data-driven applications that improve efficiency and customer experience. You can explore my <Link href="#projects" className="text-pink-500 hover:text-pink-400 underline transition-colors">projects</Link> and <Link href="#portfolio" className="text-pink-500 hover:text-pink-400 underline transition-colors">certifications</Link> to see examples of my work.
-        </motion.p>
-        
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-        >
-          At the moment, I'm working on{' '}
-          <Link 
-            href="https://mein-auto24.vercel.app/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block"
+        {/* Who I am */}
+        <div className="space-y-2">
+          <motion.h3
+            className="text-xl font-semibold text-pink-400 tracking-wide uppercase"
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.1 }}
           >
+            Who I am
+          </motion.h3>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.15 }}
+          >
+            I'm{' '}
             <motion.span 
-              className="text-pink-500 font-semibold"
+              className="text-pink-500 font-semibold inline-block"
               animate={{ scale: [1, 1.05, 1] }}
-              transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut', delay: 0.5 }}
+              transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
             >
-              meinautopreis24
+              Abdul Qader Dost
             </motion.span>
-          </Link>
-          {' '}— a platform designed to make the car-selling process faster and more convenient by connecting car owners with a network of trusted dealers. My goal is to build solutions that feel smooth, intuitive, reliable, and emotionally engaging.
-        </motion.p>
-        
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-        >
-          I'm transitioning into a <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 font-semibold">Machine Learning Engineering</span> career and planning to pursue a Master's in Computer Science with a focus on AI. I enjoy turning ideas into real, polished products and building technology that makes people's lives easier.
-        </motion.p>
+            , an Electrical and Electronics Engineer with a strong focus on{' '}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-purple-400 font-semibold">
+              AI, Machine Learning
+            </span>
+            , and building modern digital applications. After completing my bachelor's thesis on license plate detection using machine learning and Raspberry Pi, I continued strengthening my foundation through the{' '}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-400 font-semibold">
+              MIT Emerging Talent Program
+            </span>
+            .
+          </motion.p>
+        </div>
+
+        {/* What I've done */}
+        <div className="space-y-2">
+          <motion.h3
+            className="text-xl font-semibold text-purple-300 tracking-wide uppercase"
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
+            What I've done
+          </motion.h3>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.25 }}
+          >
+            Over the past years, I've helped several businesses in Germany become digitalized by building professional,
+            user-friendly websites and tools tailored to their operations. This includes working with car-selling
+            companies and developing platforms that simplify and automate real business workflows. I've created invoice
+            generators, business websites, and data-driven applications that improve efficiency and customer experience.
+            You can explore my{' '}
+            <Link href="#projects" className="text-pink-500 hover:text-pink-400 underline transition-colors">
+              projects
+            </Link>{' '}
+            and{' '}
+            <Link href="#portfolio" className="text-pink-500 hover:text-pink-400 underline transition-colors">
+              certifications
+            </Link>{' '}
+            to see examples of my work.
+          </motion.p>
+        </div>
+
+        {/* What I'm working on now */}
+        <div className="space-y-2">
+          <motion.h3
+            className="text-xl font-semibold text-blue-300 tracking-wide uppercase"
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+          >
+            What I'm working on now
+          </motion.h3>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.35 }}
+          >
+            At the moment, I'm working on{' '}
+            <Link 
+              href="https://mein-auto24.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block"
+            >
+              <motion.span 
+                className="text-pink-500 font-semibold"
+                animate={{ scale: [1, 1.05, 1] }}
+                transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut', delay: 0.5 }}
+              >
+                meinautopreis24
+              </motion.span>
+            </Link>
+            {' '}— a platform designed to make the car-selling process faster and more convenient by connecting car
+            owners with a network of trusted dealers. My goal is to build solutions that feel smooth, intuitive,
+            reliable, and emotionally engaging.
+          </motion.p>
+        </div>
+
+        {/* Where I'm going */}
+        <div className="space-y-2">
+          <motion.h3
+            className="text-xl font-semibold text-sky-300 tracking-wide uppercase"
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+          >
+            Where I'm going
+          </motion.h3>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.45 }}
+          >
+            I'm transitioning into a{' '}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 font-semibold">
+              Machine Learning Engineering
+            </span>{' '}
+            career and planning to pursue a Master's in Computer Science with a focus on AI. I enjoy turning ideas into
+            real, polished products and building technology that makes people's lives easier.
+          </motion.p>
+        </div>
       </motion.div>
     </div>
   );
