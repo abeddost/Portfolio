@@ -15,11 +15,12 @@ const projects = [
     gradient: 'from-pink-500/20 to-purple-500/20',
   },
   {
-    name: 'QalinSara',
+    name: 'QalinSara Inventory and Order Management System',
     url: 'https://qalinsara.vercel.app/',
     screenshot: '/project-screenshots/qalinsara.png',
-    description: 'A business platform designed for streamlined operations and customer engagement. Built with modern web technologies to provide a smooth user experience and efficient business workflows.',
+    description: 'A full-featured inventory and order management system tailored for carpet businesses. Manage stock levels, orders, invoices, expenses, and analytics in one place, with CSV/JSON import-export and a clean, dashboard-style interface for day-to-day operations.',
     techStack: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS'],
+    imageFit: 'contain',
     gradient: 'from-blue-500/20 to-cyan-500/20',
   },
   {
@@ -107,7 +108,8 @@ export default function Projects() {
                       src={project.screenshot}
                       alt={`${project.name} - Project screenshot showcasing ${project.description.substring(0, 50)}...`}
                       fill
-                      className="object-cover group-hover:scale-110 transition-transform duration-500"
+                      className={`${project.imageFit === 'contain' ? 'object-contain' : 'object-cover'} group-hover:scale-110 transition-transform duration-500`
+                      }
                       sizes="(max-width: 768px) 100vw, 50vw"
                       loading={index < 2 ? "eager" : "lazy"}
                       quality={85}

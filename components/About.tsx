@@ -53,11 +53,22 @@ export default function About() {
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.3 }}
         >
-          At the moment, I'm working on <motion.span 
-            className="text-pink-500 font-semibold inline-block"
-            animate={{ scale: [1, 1.05, 1] }}
-            transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut', delay: 0.5 }}
-          >meinautopreis24</motion.span> — a platform designed to make the car-selling process faster and more convenient by connecting car owners with a network of trusted dealers. My goal is to build solutions that feel smooth, intuitive, reliable, and emotionally engaging.
+          At the moment, I'm working on{' '}
+          <Link 
+            href="https://mein-auto24.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block"
+          >
+            <motion.span 
+              className="text-pink-500 font-semibold"
+              animate={{ scale: [1, 1.05, 1] }}
+              transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut', delay: 0.5 }}
+            >
+              meinautopreis24
+            </motion.span>
+          </Link>
+          {' '}— a platform designed to make the car-selling process faster and more convenient by connecting car owners with a network of trusted dealers. My goal is to build solutions that feel smooth, intuitive, reliable, and emotionally engaging.
         </motion.p>
         
         <motion.p
