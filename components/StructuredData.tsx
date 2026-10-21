@@ -72,7 +72,7 @@ export default function StructuredData() {
         "@type": "ListItem",
         "position": 3,
         "name": "Projects",
-        "item": `${baseUrl}/#projects`
+        "item": `${baseUrl}/projects`
       },
       {
         "@type": "ListItem",

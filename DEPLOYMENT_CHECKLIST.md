@@ -34,7 +34,7 @@ Before deploying, update the `baseUrl` in these files with your actual Vercel do
 
 ### 3. Verify Assets
 - [ ] All certificate images are in `/public/certificates/`
-- [ ] All project screenshots are in `/public/project-screenshots/`
+- [ ] All project screenshots are in `/public/projects/<slug>/` (desktop.webp + mobile.webp)
 - [ ] All images are properly named and accessible
 
 ### 4. Environment Variables (Optional)

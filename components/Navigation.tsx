@@ -2,8 +2,11 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 export default function Navigation() {
+  const pathname = usePathname();
+  const isHome = pathname === '/';
   const [activeSection, setActiveSection] = useState('home');
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -11,8 +14,9 @@ export default function Navigation() {
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
-      
-      const sections = ['home', 'about', 'projects', 'portfolio', 'contact'];
+      if (!isHome) return;
+
+      const sections = ['home', 'about', 'portfolio', 'contact'];
       const current = sections.find(section => {
         const element = document.getElementById(section);
         if (element) {
@@ -27,16 +31,19 @@ export default function Navigation() {
       }
     };
 
+    handleScroll();
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [isHome]);
+
+  const currentSection = pathname === '/projects' ? 'projects' : isHome ? activeSection : '';
 
   const navLinks = [
-    { href: '#home', label: 'Home', id: 'home' },
-    { href: '#about', label: 'About', id: 'about' },
-    { href: '#projects', label: 'Projects', id: 'projects' },
-    { href: '#portfolio', label: 'Portfolio', id: 'portfolio' },
-    { href: '#contact', label: 'Contact', id: 'contact' },
+    { href: '/#home', label: 'Home', id: 'home' },
+    { href: '/#about', label: 'About', id: 'about' },
+    { href: '/projects', label: 'Projects', id: 'projects' },
+    { href: '/#portfolio', label: 'Portfolio', id: 'portfolio' },
+    { href: '/#contact', label: 'Contact', id: 'contact' },
   ];
 
   return (
@@ -50,7 +57,7 @@ export default function Navigation() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <Link
-            href="#home"
+            href="/#home"
             className="text-xl font-bold text-white hover:text-pink-500 transition-colors"
           >
             Abdul Qader Dost
@@ -62,7 +69,7 @@ export default function Navigation() {
                 key={link.id}
                 href={link.href}
                 className={`text-sm font-medium transition-colors ${
-                  activeSection === link.id
+                  currentSection === link.id
                     ? 'text-pink-500'
                     : 'text-gray-300 hover:text-white'
                 }`}
@@ -120,7 +127,7 @@ export default function Navigation() {
                   href={link.href}
                   onClick={() => setIsMobileMenuOpen(false)}
                   className={`text-sm font-medium transition-colors ${
-                    activeSection === link.id
+                    currentSection === link.id
                       ? 'text-pink-500'
                       : 'text-gray-300 hover:text-white'
                   }`}
