@@ -84,7 +84,7 @@ export default function About() {
             companies and developing platforms that simplify and automate real business workflows. I've created invoice
             generators, business websites, and data-driven applications that improve efficiency and customer experience.
             You can explore my{' '}
-            <Link href="#projects" className="text-pink-500 hover:text-pink-400 underline transition-colors">
+            <Link href="/projects" className="text-pink-500 hover:text-pink-400 underline transition-colors">
               projects
             </Link>{' '}
             and{' '}

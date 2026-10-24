@@ -114,7 +114,7 @@ export default function Hero() {
               whileTap={{ scale: 0.95 }}
             >
               <Link
-                href="#projects"
+                href="/projects"
                 className="px-8 py-3 bg-gradient-to-r from-pink-500 to-purple-500 text-white font-semibold rounded-lg hover:from-pink-600 hover:to-purple-600 transition-all duration-300 shadow-lg shadow-pink-500/50"
               >
                 View Projects
