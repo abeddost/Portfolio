@@ -114,7 +114,7 @@ export default function About() {
           >
             At the moment, I'm working on{' '}
             <Link 
-              href="https://mein-auto24.vercel.app/"
+              href="https://www.meinautoverkauf.de"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block"
@@ -124,7 +124,7 @@ export default function About() {
                 animate={{ scale: [1, 1.05, 1] }}
                 transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut', delay: 0.5 }}
               >
-                meinautopreis24
+                www.meinautoverkauf.de
               </motion.span>
             </Link>
             {' '}— a platform designed to make the car-selling process faster and more convenient by connecting car
